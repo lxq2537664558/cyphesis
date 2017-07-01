@@ -133,6 +133,9 @@ void Peer::operation(const Operation &op, OpVector &res)
             m_state = PEER_FAILED;
         }
         break;
+        default:
+            //Ignore all else
+            break;
     }
 }
 
@@ -159,10 +162,6 @@ int Peer::teleportEntity(const LocatedEntity * ent)
 
     // Add a teleport state object to identify this teleport request
     TeleportState * s = new TeleportState(teleport_time);
-    if (s == NULL) {
-        log(ERROR, "Unable to allocate teleport state object");
-        return -1;
-    }
 
     // Check if the entity has a mind
     const Character * chr = dynamic_cast<const Character *>(ent);

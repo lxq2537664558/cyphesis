@@ -759,7 +759,7 @@ void EntityImporterBase::sightArrived(const Operation & op, OpVector & res)
     }
         break;
     default:
-        S_LOG_WARNING("Unexpected state in state machine.");
+        S_LOG_WARNING("Unexpected state in state machine: " << m_state << ".");
         break;
     };
 }
